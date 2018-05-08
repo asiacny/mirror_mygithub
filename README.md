@@ -23,12 +23,22 @@
 ```text
 user          :  github 用户名
 token         :  https://github.com/settings/tokens 到这里创建一个 access token
-repo_root_dir :  要保存仓库的根目录
+repo_root_dir :  本地要保存仓库的根目录
 ```
 
 ## 依赖
 
 * 需要安装 git, 并且将服务器的 ssh 公钥添加到 github
+
+## 提示Permission denied解决方法
+极大多数情况是由于github账号没有设置ssh公钥信息所致。 
+前往 GitHub 网站的"account settings"依次点击"Setting -> SSH Keys"->"New SSH key" Title处填写“id_rsa.pub”或其他任意信息。 
+key处原样拷贝下面命令的打印 `~/.ssh/id_rsa.pub` 
+文件的内容： ``` cat ~/.ssh/id_rsa.pub ```
+如没有则按下述方法生成：  ssh-keygen -t rsa  一路回车......  
+最后，输入“ssh -T git@github.com”确认OK即可。
+再尝试输出就应该有了```cat ~/.ssh/id_rsa.pub
+
 
 ## 使用场景
 
